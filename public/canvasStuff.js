@@ -22,6 +22,8 @@ const draw = () => {
     context.strokeStyle = 'rgb(0,255,0)'
     context.stroke()
 
+    requestAnimationFrame(draw)
+
 }
 
 canvas.addEventListener('mousemove', (event) => {
