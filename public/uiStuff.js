@@ -6,3 +6,11 @@ const context = canvas.getContext('2d')
 
 canvas.height = Wheight
 canvas.width = wWidth
+
+window.addEventListener('load',() => {
+
+    const loginModal = new bootstrap.Modal('#loginModal')
+
+    loginModal.show()
+
+})
