@@ -8,7 +8,7 @@ const io = socketio(expressServer)
 app.use(express.static('./public'))
 
 
-
+console.log('hello')
 
 module.exports = {
     io,
