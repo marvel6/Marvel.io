@@ -14,9 +14,21 @@ player.locY = Math.floor(500 * Math.random() + 10)
 
 const draw = () => {
 
+    context.clearRect(0, 0, canvas.width, canvas.height)
+
+
+    context.setTransform(1, 0, 0, 1, 0, 0)
+
+
+    const camX = -player.locX + canvas.width / 2
+    const camY = -player.locY + canvas.height / 2
+
+    context.translate(camX, camY)
+
     context.beginPath()
     context.fillStyle = 'rgb(255,0,0)'
     context.arc(player.locX, player.locY, 10, 0, Math.PI * 2)
+    context.arc(200, 200, 10, 0, Math.PI * 2)
     context.fill()
     context.lineWidth = 2
     context.strokeStyle = 'rgb(0,255,0)'
