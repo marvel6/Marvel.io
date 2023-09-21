@@ -9,6 +9,8 @@ canvas.width = wWidth
 
 const player = {}
 
+let orbs = []
+
 
 const loginModal = new bootstrap.Modal('#loginModal')
 const spawnModal = new bootstrap.Modal('#spawnModal')

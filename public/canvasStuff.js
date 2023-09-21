@@ -1,6 +1,6 @@
 const init = () => {
 
-    console.log('init')
+    console.log(orbs)
 
     draw()
 }

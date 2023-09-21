@@ -1,4 +1,4 @@
-class Orbs {
+class Orb{
 
     constructor() {
         this.color = this.getRandomColor();
@@ -20,4 +20,4 @@ class Orbs {
 }
 
 
-module.exports = Orbs
+module.exports = Orb
