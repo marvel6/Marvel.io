@@ -5,6 +5,16 @@ const Orb = require('./classes/objects')
 
 const orbs = [];
 
+const settings = {
+    numberOfOrbs: 500,
+    defaultSize: 6,
+    defaultSpeed: 6,
+    defaultZoom: 1.5,
+    worldWidth: 500,
+    worldHeight: 500,
+    defaultGenericOrbsSize: 5
+}
+
 initGame()
 
 io.on('connect', (socket) => {
@@ -16,9 +26,9 @@ io.on('connect', (socket) => {
 
 function initGame() {
 
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < settings.numberOfOrbs; i++) {
 
-        orbs.push(new Orb())
+        orbs.push(new Orb(settings))
     }
 }
 

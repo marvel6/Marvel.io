@@ -47,11 +47,12 @@ const draw = () => {
 }
 
 canvas.addEventListener('mousemove', (event) => {
-    console.log(event)
+
     const mousePosition = {
         x: event.clientX,
         y: event.clientY
     };
+
     const angleDeg = Math.atan2(mousePosition.y - (canvas.height / 2), mousePosition.x - (canvas.width / 2)) * 180 / Math.PI;
     if (angleDeg >= 0 && angleDeg < 90) {
         xVector = 1 - (angleDeg / 90);
