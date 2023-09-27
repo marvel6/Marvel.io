@@ -11,6 +11,9 @@ const Orb = require('./classes/objects')
 
 const orbs = [];
 
+const players = []
+let disconnectedPlayer;
+
 const settings = {
     numberOfOrbs: 500,
     defaultSize: 6,
@@ -23,24 +26,50 @@ const settings = {
 
 initGame()
 
+
+
+
+
 io.on('connect', (socket) => {
 
     socket.on('init', (playerObj, ObsAwk) => {
 
-        const playerName = 'devel'
+
+        if (players.length === 0) {
+
+            disconnectedPlayer = setInterval(() => {
+
+                io.to('game').emit('tick', players)
+                
+            }, 33)
+
+        }
+
+        socket.join('game')
+
+        const playerName = playerObj.playerName
 
         const playConfig = new PlayConfig(settings)
         const playerData = new PlayerDatum(playerName, settings)
 
         const player = new Player(socket.id, playConfig, playerData)
 
+        players.push(player)
+
         ObsAwk(orbs)
 
-        socket.emit('initReturn', {
-            orbs
-        })
+       
 
 
+    })
+
+
+    socket.on('disconnect', () => {
+
+        if (players.length === 0) {
+
+            clearInterval(disconnectedPlayer)
+        }
     })
 
 
