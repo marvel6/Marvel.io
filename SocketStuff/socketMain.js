@@ -25,16 +25,23 @@ initGame()
 
 io.on('connect', (socket) => {
 
-    const playerName = 'devel'
+    socket.on('init', (playerObj) => {
 
-    const playConfig = new PlayConfig(settings)
-    const playerData = new PlayerDatum(playerName, settings)
+        const playerName = 'devel'
 
-    const player = new Player(socket.id, playConfig, playerData)
+        const playConfig = new PlayConfig(settings)
+        const playerData = new PlayerDatum(playerName, settings)
 
-    socket.emit('init', {
-        orbs
+        const player = new Player(socket.id, playConfig, playerData)
+
+        socket.emit('initReturn', {
+            orbs
+        })
+
+
     })
+
+
 })
 
 function initGame() {
