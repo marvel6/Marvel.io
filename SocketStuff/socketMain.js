@@ -2,6 +2,9 @@ const io = require('../server').io
 const app = require('../server').app
 
 const Orb = require('./classes/objects')
+const Player = require('./classes/Player')
+const playConfig = require('./classes/PlayerConfig')
+const playerDatum = require('./classes/playerDatas')
 
 const orbs = [];
 

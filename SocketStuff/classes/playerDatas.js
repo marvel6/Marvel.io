@@ -23,3 +23,6 @@ class PlayerData {
     }
 
 }
+
+
+module.exports = PlayerData
