@@ -3,11 +3,13 @@
 const socket = io('http://localhost:8000')
 
 
-const init = () => {
+const init = async () => {
 
-   socket.emit('init', {
+   const socketObs = await socket.emitWithAck('init', {
       playName: player.name
    })
+
+   orbs = socketObs
 
    console.log(orbs)
 
@@ -17,6 +19,6 @@ const init = () => {
 
 socket.on('initReturn', (data) => {
 
-   orbs = data.orbs
+
 
 })

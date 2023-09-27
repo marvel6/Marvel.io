@@ -25,7 +25,7 @@ initGame()
 
 io.on('connect', (socket) => {
 
-    socket.on('init', (playerObj) => {
+    socket.on('init', (playerObj, ObsAwk) => {
 
         const playerName = 'devel'
 
@@ -33,6 +33,8 @@ io.on('connect', (socket) => {
         const playerData = new PlayerDatum(playerName, settings)
 
         const player = new Player(socket.id, playConfig, playerData)
+
+        ObsAwk(orbs)
 
         socket.emit('initReturn', {
             orbs
